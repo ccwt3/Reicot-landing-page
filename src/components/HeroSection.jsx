@@ -20,7 +20,7 @@ export default function HeroSection() {
       </header>
 
       <div className="hero__grid">
-        <aside className="rail hero__rail" aria-label="Resumen Reicot">
+        <aside className="rail hero__rail elpepe" aria-label="Resumen Reicot">
           <div>
             <strong>Reicot /<br />2026</strong>
             <ul>

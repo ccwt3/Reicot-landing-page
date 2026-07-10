@@ -158,6 +158,7 @@
   inset: 0 18% 0 9%;
   background: var(--red);
   clip-path: polygon(16% 0, 100% 0, 73% 100%, 0 100%);
+  transform-origin: left center;
 }
 
 .system-card__line {
@@ -189,4 +190,66 @@
   font-size: var(--fs-display);
   line-height: 0.9;
   font-weight: 950;
+}
+
+/* --- Animación del system-card (sencilla, disparada en viewport) ---------
+   Al entrar en vista: la forma roja hace un barrido, la diagonal se traza,
+   el círculo aparece y el rótulo sube. Gated en `no-preference`. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Estado de arranque (oculto) antes de entrar en vista. */
+  .system-card:not(.is-visible) .system-card__red {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .system-card:not(.is-visible) .system-card__line {
+    transform: rotate(-38deg) scaleX(0);
+  }
+
+  .system-card:not(.is-visible) .system-card__orbit {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .system-card:not(.is-visible) strong {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  /* Al entrar en vista. */
+  .system-card.is-visible .system-card__red {
+    animation: system-card-wipe 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  }
+
+  .system-card.is-visible .system-card__line {
+    animation: system-card-line-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+  }
+
+  .system-card.is-visible .system-card__orbit {
+    animation: system-card-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both;
+  }
+
+  .system-card.is-visible strong {
+    animation: system-card-rise 0.6s ease-out 0.7s both;
+  }
+}
+
+@keyframes system-card-wipe {
+  from { opacity: 0; transform: scaleX(0); }
+  to { opacity: 1; transform: scaleX(1); }
+}
+
+@keyframes system-card-line-draw {
+  from { transform: rotate(-38deg) scaleX(0); }
+  to { transform: rotate(-38deg) scaleX(1); }
+}
+
+@keyframes system-card-pop {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes system-card-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
 }

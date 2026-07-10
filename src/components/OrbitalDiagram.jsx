@@ -1,6 +1,9 @@
+import useInView from '../hooks/useInView.js';
+
 export default function OrbitalDiagram() {
+  const ref = useInView();
   return (
-    <div className="orbital" aria-hidden="true">
+    <div className="orbital" ref={ref} aria-hidden="true">
       <span className="orbital__ring orbital__ring--outer" />
       <span className="orbital__ring orbital__ring--middle" />
       <span className="orbital__ring orbital__ring--inner" />

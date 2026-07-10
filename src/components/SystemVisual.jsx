@@ -1,6 +1,9 @@
+import useInView from '../hooks/useInView.js';
+
 export default function SystemVisual() {
+  const ref = useInView();
   return (
-    <div className="system-card" aria-label="Reicot System View">
+    <div className="system-card" ref={ref} aria-label="Reicot System View">
       <span className="system-card__grid system-card__grid--one" aria-hidden="true" />
       <span className="system-card__grid system-card__grid--two" aria-hidden="true" />
       <span className="system-card__grid system-card__grid--three" aria-hidden="true" />

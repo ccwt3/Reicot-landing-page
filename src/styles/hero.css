@@ -115,7 +115,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   gap: var(--space-5) var(--space-7);
   padding: 24px var(--gutter);
@@ -367,19 +367,21 @@
   width: 136px;
   background: #3a3732;
   transform-origin: left center;
+  /* Estado final (visible). La entrada la dibuja desde su anclaje (scaleX 0 → 1). */
+  transform: rotate(var(--rot)) scaleX(1);
 }
 
 .orbital__line--one {
+  --rot: -28deg;
   right: -28px;
   top: 128px;
-  transform: rotate(-28deg);
 }
 
 .orbital__line--two {
+  --rot: 42deg;
   right: 38px;
   bottom: 118px;
   width: 78px;
-  transform: rotate(42deg);
 }
 
 .orbital__label {
@@ -404,6 +406,89 @@
 @media (min-width: 1120px) {
   .orbital__label {
     right: -8px;
+  }
+}
+
+/* --- Animación de entrada del orbital -----------------------------------
+   Se dispara cuando el diagrama entra en el viewport (JS agrega .is-visible).
+   Todo va dentro de `no-preference`: si el usuario pidió menos movimiento,
+   nada de esto aplica y el orbital queda estático y visible. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Estado de arranque (oculto) mientras el orbital aún no entra en vista. */
+  .orbital:not(.is-visible) .orbital__ring,
+  .orbital:not(.is-visible) .orbital__core,
+  .orbital:not(.is-visible) .orbital__dot:not(.orbital__dot--red) {
+    opacity: 0;
+  }
+
+  .orbital:not(.is-visible) .orbital__line {
+    opacity: 0;
+    transform: rotate(var(--rot)) scaleX(0);
+  }
+
+  .orbital:not(.is-visible) .orbital__dot--red {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  /* Al entrar en vista: marco suave, líneas dibujándose, punto rojo que crece
+     y luego late. Los delays cuentan desde este momento. */
+  .orbital.is-visible .orbital__ring,
+  .orbital.is-visible .orbital__core,
+  .orbital.is-visible .orbital__dot:not(.orbital__dot--red) {
+    animation: orbital-frame-in 0.7s ease-out 0.3s both;
+  }
+
+  .orbital.is-visible .orbital__line {
+    animation: orbital-line-draw 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
+  }
+
+  .orbital.is-visible .orbital__dot--red {
+    animation:
+      orbital-dot-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.6s both,
+      orbital-dot-pulse 2.6s ease-in-out 2.4s infinite;
+  }
+}
+
+@keyframes orbital-frame-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Líneas: se dibujan desde su anclaje hacia afuera. */
+@keyframes orbital-line-draw {
+  from {
+    opacity: 0;
+    transform: rotate(var(--rot)) scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(var(--rot)) scaleX(1);
+  }
+}
+
+/* Punto rojo: crece desde un punto hasta su lugar. */
+@keyframes orbital-dot-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Punto rojo: palpitación en bucle (respiración suave con halo). */
+@keyframes orbital-dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 58, 49, 0);
+  }
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 10px rgba(212, 58, 49, 0.12);
   }
 }
 
