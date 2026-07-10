@@ -1,0 +1,449 @@
+/* =========================================================================
+   Hero — topbar, riel, contenido, diagrama orbital y tira de métricas.
+   Mobile-first: base apilada; el grid editorial aparece desde 768px.
+   ========================================================================= */
+
+/* --- Topbar --- */
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar__brand {
+  display: grid;
+  place-items: center;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+
+.logo img {
+  width: 112px;
+  height: auto;
+  display: block;
+}
+
+.logo--compact img {
+  width: 132px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3) var(--space-4);
+  color: var(--ink-muted);
+  font-size: 13px;
+}
+
+.nav a {
+  transition: color 180ms ease;
+}
+
+.nav a:hover {
+  color: var(--ink);
+}
+
+@media (min-width: 768px) {
+  .topbar {
+    grid-template-columns: var(--rail) 1fr auto;
+    justify-items: stretch;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    min-height: 116px;
+  }
+
+  .topbar__brand {
+    min-height: 116px;
+    border-right: 1px solid var(--line);
+  }
+
+  .nav {
+    justify-self: center;
+    gap: 32px;
+    font-size: var(--fs-nav);
+  }
+
+  .pill--dark {
+    margin-right: 24px;
+  }
+}
+
+@media (min-width: 1120px) {
+  .logo img {
+    width: 128px;
+  }
+
+  .logo--compact img {
+    width: 156px;
+  }
+
+  .nav {
+    gap: 48px;
+  }
+
+  .pill--dark {
+    margin-right: 40px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .nav {
+    gap: 72px;
+  }
+}
+
+/* --- Grid del hero --- */
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Riel lateral (móvil: fila apilada arriba del contenido) */
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: 28px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-size: var(--fs-rail);
+  line-height: 1.55;
+}
+
+.rail strong {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.rail ul,
+.rail ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail ol {
+  display: grid;
+  gap: 12px;
+}
+
+.rail li span {
+  display: block;
+  color: var(--ink);
+}
+
+@media (min-width: 480px) {
+  .rail {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-6) var(--space-8);
+  }
+
+  .rail ol {
+    grid-template-columns: repeat(2, minmax(90px, 1fr));
+    gap: 12px var(--space-6);
+  }
+}
+
+/* Contenido central */
+.hero__content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--section-py) var(--gutter);
+  gap: var(--space-7);
+}
+
+.hero__title {
+  max-width: 1030px;
+  font-size: var(--fs-h1);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.hero__title em {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.hero__notes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  max-width: 980px;
+}
+
+.hero__notes article,
+.hero__editorial,
+.footer__details article {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.hero__notes p:not(.kicker),
+.hero__editorial p:not(.kicker),
+.footer__details p:not(.kicker),
+.footer__side p,
+.case__intro,
+.case__list p {
+  color: var(--ink-soft);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+/* Columna visual (diagrama + nota editorial) */
+.hero__visual {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  padding: var(--section-py-sm) var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .hero__grid {
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+  }
+
+  .rail {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: var(--space-9);
+    padding: 56px 34px;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+  }
+
+  .rail ol {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero__content {
+    gap: var(--space-8);
+  }
+
+  .hero__notes {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .hero__visual {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: minmax(240px, 340px) minmax(240px, 1fr);
+    align-items: center;
+    gap: var(--space-7);
+  }
+}
+
+@media (min-width: 1120px) {
+  .hero__grid {
+    grid-template-columns: var(--rail) minmax(0, 1fr) 360px;
+    min-height: calc(100vh - 116px);
+  }
+
+  .hero__content {
+    justify-content: space-between;
+  }
+
+  .hero__visual {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-9);
+    padding: 72px 34px 70px;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero__grid {
+    grid-template-columns: var(--rail) minmax(0, 1fr) 420px;
+  }
+
+  .hero__visual {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+}
+
+/* --- Diagrama orbital (arte decorativo — geometría conservada) --- */
+.orbital {
+  position: relative;
+  width: min(100%, 350px);
+  aspect-ratio: 1;
+  margin: 8px auto 0;
+}
+
+.orbital__ring,
+.orbital__core,
+.orbital__dot,
+.orbital__line,
+.orbital__label {
+  position: absolute;
+}
+
+.orbital__ring {
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  inset: 0;
+}
+
+.orbital__ring--middle {
+  inset: 44px;
+}
+
+.orbital__ring--inner {
+  inset: 92px;
+}
+
+.orbital__core {
+  inset: 94px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.orbital__dot {
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.orbital__dot--red {
+  width: 40px;
+  height: 40px;
+  right: 52px;
+  top: 116px;
+  border: 0;
+  background: var(--red);
+}
+
+.orbital__dot--one {
+  left: 80px;
+  top: 190px;
+}
+
+.orbital__dot--two {
+  right: 68px;
+  bottom: 112px;
+}
+
+.orbital__dot--three {
+  left: 168px;
+  bottom: 74px;
+}
+
+.orbital__line {
+  height: 1px;
+  width: 136px;
+  background: #3a3732;
+  transform-origin: left center;
+}
+
+.orbital__line--one {
+  right: -28px;
+  top: 128px;
+  transform: rotate(-28deg);
+}
+
+.orbital__line--two {
+  right: 38px;
+  bottom: 118px;
+  width: 78px;
+  transform: rotate(42deg);
+}
+
+.orbital__label {
+  display: none;
+  right: -48px;
+  top: 12px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-size: 11px;
+}
+
+@media (min-width: 768px) {
+  .orbital__label {
+    display: block;
+  }
+}
+
+/* En los layouts de sidebar (columna pegada al marco) la etiqueta se
+   mantiene dentro del panel para no salirse del borde derecho. */
+@media (min-width: 1120px) {
+  .orbital__label {
+    right: -8px;
+  }
+}
+
+/* --- Tira de métricas --- */
+.metric-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--line);
+}
+
+.metric-strip article {
+  min-height: 142px;
+  padding: var(--space-6) var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+
+.metric-strip strong {
+  display: block;
+  margin-top: 12px;
+  font-size: var(--fs-display);
+  line-height: 0.9;
+}
+
+@media (min-width: 768px) {
+  .metric-strip {
+    margin-left: var(--rail);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .metric-strip article {
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+
+  .metric-strip article:last-child {
+    border-right: 0;
+  }
+}

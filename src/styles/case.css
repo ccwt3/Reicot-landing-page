@@ -1,0 +1,192 @@
+/* =========================================================================
+   Caso real (Motorefacciones) — media + copy. Dos columnas desde 1120px.
+   ========================================================================= */
+
+.case {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.case__media,
+.case__copy {
+  position: relative;
+  min-width: 0;
+}
+
+.case__media {
+  display: grid;
+  place-items: center;
+  padding: 84px var(--gutter) 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-number {
+  position: absolute;
+  top: 30px;
+  left: var(--gutter);
+}
+
+.case__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--section-py) var(--gutter);
+}
+
+.case__copy .eyebrow {
+  margin-bottom: var(--space-6);
+}
+
+.case__copy h2 {
+  max-width: 650px;
+  font-size: var(--fs-h2);
+  line-height: 0.92;
+  font-weight: 950;
+  letter-spacing: -0.01em;
+}
+
+.case__intro {
+  max-width: 640px;
+  margin-top: var(--space-5);
+}
+
+.case__list {
+  list-style: none;
+  margin: var(--space-7) 0 var(--space-5);
+  padding: 0;
+  border-top: 1px solid var(--line);
+  max-width: 650px;
+}
+
+.case__list li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: var(--space-4);
+  align-items: start;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.case__list span {
+  color: var(--red);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.case__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .case__list li {
+    grid-template-columns: 42px 1fr;
+  }
+}
+
+@media (min-width: 1120px) {
+  .case {
+    grid-template-columns: minmax(0, 1.08fr) minmax(460px, 0.92fr);
+    min-height: 100vh;
+  }
+
+  .case__media {
+    padding: 110px var(--gutter);
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+  }
+
+  .section-number {
+    top: 70px;
+    left: 70px;
+  }
+
+  .case__copy {
+    padding: 88px var(--gutter) 64px;
+  }
+}
+
+/* --- System card (arte decorativo — geometría conservada) --- */
+.system-card {
+  position: relative;
+  width: min(100%, 760px);
+  aspect-ratio: 1.48;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fbfaf6;
+  box-shadow: 0 28px 90px rgba(31, 28, 24, 0.12);
+}
+
+.system-card::before,
+.system-card::after {
+  content: "";
+  position: absolute;
+  background: rgba(17, 17, 17, 0.08);
+}
+
+.system-card::before {
+  inset: 0 auto 0 33.33%;
+  width: 1px;
+}
+
+.system-card::after {
+  inset: 0 auto 0 66.66%;
+  width: 1px;
+}
+
+.system-card__grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.system-card__grid--one {
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  top: 33.33%;
+}
+
+.system-card__grid--two {
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  top: 66.66%;
+}
+
+.system-card__red {
+  position: absolute;
+  inset: 0 18% 0 9%;
+  background: var(--red);
+  clip-path: polygon(16% 0, 100% 0, 73% 100%, 0 100%);
+}
+
+.system-card__line {
+  position: absolute;
+  width: 120%;
+  height: 1px;
+  left: 14%;
+  top: 74%;
+  background: var(--ink);
+  transform: rotate(-38deg);
+  transform-origin: left center;
+}
+
+.system-card__orbit {
+  position: absolute;
+  right: 21%;
+  top: 24%;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #2c2a27;
+  border-radius: 50%;
+  background: #fbfaf6;
+}
+
+.system-card strong {
+  position: absolute;
+  left: 7.5%;
+  bottom: 9%;
+  font-size: var(--fs-display);
+  line-height: 0.9;
+  font-weight: 950;
+}

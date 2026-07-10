@@ -1,0 +1,129 @@
+/* =========================================================================
+   Footer / Contacto — 1 → 2 → 3 columnas. La barra legal siempre al pie.
+   ========================================================================= */
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.footer__number {
+  padding: 38px var(--gutter) 0;
+}
+
+.footer__main {
+  padding: var(--section-py) var(--gutter);
+}
+
+.footer__main h2 {
+  max-width: 800px;
+  margin-top: var(--space-6);
+  font-size: var(--fs-h2);
+  line-height: 0.94;
+  font-weight: 950;
+  letter-spacing: -0.01em;
+}
+
+.footer__details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  margin-top: var(--space-8);
+  max-width: 850px;
+}
+
+.footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+.footer__actions .pill--dark {
+  margin-right: 0;
+}
+
+.footer__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  padding: 38px var(--gutter);
+}
+
+.footer__side p {
+  max-width: 270px;
+}
+
+.footer__legal {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  min-height: 74px;
+  padding: 22px var(--gutter);
+  border-top: 1px solid var(--line);
+  color: var(--ink-legal);
+  font-size: 14px;
+}
+
+.footer__legal nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+  }
+
+  .footer__number {
+    padding: 72px 34px;
+    border-right: 1px solid var(--line);
+  }
+
+  .footer__main {
+    padding: var(--section-py) var(--gutter) 78px;
+    border-right: 1px solid var(--line);
+  }
+
+  .footer__details {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: var(--space-9);
+  }
+
+  .footer__side {
+    grid-column: 2 / 3;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-9);
+    border-top: 1px solid var(--line);
+  }
+
+  .footer__legal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+  }
+
+  .footer__legal nav {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1120px) {
+  .footer {
+    grid-template-columns: var(--rail) minmax(0, 1fr) 390px;
+  }
+
+  .footer__side {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-9);
+    padding: 70px 38px 78px;
+    border-top: 0;
+  }
+}

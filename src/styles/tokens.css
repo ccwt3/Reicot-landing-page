@@ -1,0 +1,68 @@
+/* =========================================================================
+   Tokens — única fuente de verdad para color, espaciado, tipografía y ritmo.
+   El diseño (paleta, branding, redondeos) se conserva; aquí sólo se ordena.
+   ========================================================================= */
+
+:root {
+  /* --- Paleta de marca (sin cambios) --- */
+  --paper: #f4f1eb;
+  --ink: #111111;
+  --muted: #69655f;
+  --line: #d6d1c8;
+  --red: #d43a31;
+
+  /* Tintas de texto que antes estaban repetidas como hex sueltos */
+  --ink-soft: #37342f;   /* cuerpo de párrafos */
+  --ink-muted: #5d5953;  /* riel, subtítulos, líneas finas de detalle */
+  --ink-faint: #77716a;  /* eyebrows / kickers */
+  --ink-legal: #4f4b45;  /* pie legal */
+
+  /* --- Escala de espaciado (base 4px) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+
+  /* --- Ritmo vertical de sección (fluido) --- */
+  --section-py: clamp(56px, 4vw + 32px, 110px);
+  --section-py-sm: clamp(48px, 3vw + 28px, 88px);
+
+  /* --- Riel y gutter: crecen por breakpoint (ver base.css / media) --- */
+  --rail: 100%;          /* móvil: el riel se apila como fila */
+  --gutter: var(--space-5);
+
+  /* --- Radios (SE CONSERVAN EXACTOS — no cambiar) --- */
+  --radius-pill: 999px;
+
+  /* --- Tipografía base --- */
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  /* Tamaños de texto de UI (fijos) */
+  --fs-eyebrow: 11px;
+  --fs-nav: 14px;
+  --fs-rail: 13px;
+  --fs-meta: 12px;
+  --fs-pill: 13px;
+  --fs-body: clamp(15px, 0.5vw + 13.5px, 17px);   /* cuerpo hero/caso */
+  --fs-body-card: 15px;                            /* cuerpo tarjetas */
+
+  /* Display / titulares (fluidos: se calibran para igualar el desktop) */
+  --fs-h1: clamp(2.875rem, 1rem + 8vw, 8.25rem);       /* hero  → 132px */
+  --fs-h2: clamp(2.5rem, 0.75rem + 6vw, 5.5rem);       /* caso/footer → 88px */
+  --fs-h2-projects: clamp(2.125rem, 1rem + 3.2vw, 3.5rem); /* proyectos → 56px */
+  --fs-display: clamp(2.125rem, 1rem + 3.6vw, 3.875rem);   /* métricas / system-card → 62px */
+
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}

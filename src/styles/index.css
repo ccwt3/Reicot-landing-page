@@ -1,0 +1,7 @@
+/* Punto de entrada de estilos. El orden importa: tokens → base → secciones. */
+@import "./tokens.css";
+@import "./base.css";
+@import "./hero.css";
+@import "./case.css";
+@import "./projects.css";
+@import "./footer.css";
