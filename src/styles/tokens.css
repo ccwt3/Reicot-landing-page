@@ -28,9 +28,10 @@
   --space-8: 64px;
   --space-9: 80px;
 
-  /* --- Ritmo vertical de sección (fluido) --- */
-  --section-py: clamp(56px, 4vw + 32px, 110px);
-  --section-py-sm: clamp(48px, 3vw + 28px, 88px);
+  /* --- Ritmo vertical de sección (fluido) ---
+     Máximos contenidos para que cada sección quepa en el viewport en desktop. */
+  --section-py: clamp(48px, 3vw + 24px, 80px);
+  --section-py-sm: clamp(40px, 2vw + 24px, 60px);
 
   /* --- Riel y gutter: crecen por breakpoint (ver base.css / media) --- */
   --rail: 100%;          /* móvil: el riel se apila como fila */
@@ -53,11 +54,12 @@
   --fs-body: clamp(15px, 0.5vw + 13.5px, 17px);   /* cuerpo hero/caso */
   --fs-body-card: 15px;                            /* cuerpo tarjetas */
 
-  /* Display / titulares (fluidos: se calibran para igualar el desktop) */
-  --fs-h1: clamp(2.875rem, 1rem + 8vw, 8.25rem);       /* hero  → 132px */
-  --fs-h2: clamp(2.5rem, 0.75rem + 6vw, 5.5rem);       /* caso/footer → 88px */
-  --fs-h2-projects: clamp(2.125rem, 1rem + 3.2vw, 3.5rem); /* proyectos → 56px */
-  --fs-display: clamp(2.125rem, 1rem + 3.6vw, 3.875rem);   /* métricas / system-card → 62px */
+  /* Display / titulares (fluidos). Máximos reducidos para que los titulares
+     no desborden la altura del viewport en pantallas anchas. */
+  --fs-h1: clamp(2.875rem, 1rem + 7vw, 6.5rem);        /* hero  → 104px */
+  --fs-h2: clamp(2.5rem, 0.5rem + 4vw, 4rem);          /* caso/footer → 64px */
+  --fs-h2-projects: clamp(2.125rem, 1rem + 2vw, 3rem); /* proyectos → 48px */
+  --fs-display: clamp(2.125rem, 1rem + 2.4vw, 2.875rem);   /* métricas / system-card → 46px */
 
   color: var(--ink);
   background: var(--paper);

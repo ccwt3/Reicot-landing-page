@@ -121,14 +121,7 @@
 
 @media (min-width: 1120px) {
   .projects {
-    padding: 110px var(--gutter) 96px;
-  }
-
-  .projects .section-number {
-    position: absolute;
-    top: 70px;
-    left: 70px;
-    margin: 0;
+    padding: var(--section-py) var(--gutter);
   }
 }
 

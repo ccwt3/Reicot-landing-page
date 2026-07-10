@@ -95,7 +95,7 @@ strong {
 .footer__number {
   color: var(--red);
   font-family: var(--font-serif);
-  font-size: clamp(38px, 3vw, 48px);
+  font-size: clamp(36px, 2.4vw, 44px);
   line-height: 1;
 }
 

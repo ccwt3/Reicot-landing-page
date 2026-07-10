@@ -261,11 +261,14 @@
 @media (min-width: 1120px) {
   .hero__grid {
     grid-template-columns: var(--rail) minmax(0, 1fr) 360px;
-    min-height: calc(100vh - 116px);
+    /* topbar (116) + tira de métricas (112) descontados para que
+       el hero completo quepa en ~1 viewport. */
+    min-height: calc(100vh - 116px - 112px);
   }
 
   .hero__content {
     justify-content: space-between;
+    padding-block: var(--section-py-sm);
   }
 
   .hero__visual {
@@ -421,8 +424,8 @@
 }
 
 .metric-strip article {
-  min-height: 142px;
-  padding: var(--space-6) var(--gutter);
+  min-height: 112px;
+  padding: var(--space-5) var(--gutter);
   border-bottom: 1px solid var(--line);
 }
 

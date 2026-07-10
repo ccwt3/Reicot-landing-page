@@ -34,8 +34,8 @@ export default function FooterSection() {
       <aside className="footer__side">
         <ReicotLogo compact />
         <p>
-          <strong>El objetivo no es saber, si no hacer.
-          <br />Software directo de la mente.</strong>
+          El objetivo no es saber, si no hacer.
+          <strong><br />Software directo de la mente.</strong>
         </p>
       </aside>
 

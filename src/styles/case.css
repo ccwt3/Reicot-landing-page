@@ -47,12 +47,12 @@
 
 .case__intro {
   max-width: 640px;
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
 }
 
 .case__list {
   list-style: none;
-  margin: var(--space-7) 0 var(--space-5);
+  margin: var(--space-6) 0 var(--space-5);
   padding: 0;
   border-top: 1px solid var(--line);
   max-width: 650px;
@@ -63,7 +63,7 @@
   grid-template-columns: 30px 1fr;
   gap: var(--space-4);
   align-items: start;
-  padding: var(--space-5) 0;
+  padding: var(--space-4) 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -94,18 +94,18 @@
   }
 
   .case__media {
-    padding: 110px var(--gutter);
+    padding: var(--section-py-sm) var(--gutter);
     border-right: 1px solid var(--line);
     border-bottom: 0;
   }
 
   .section-number {
-    top: 70px;
-    left: 70px;
+    top: 48px;
+    left: 56px;
   }
 
   .case__copy {
-    padding: 88px var(--gutter) 64px;
+    padding: var(--section-py-sm) var(--gutter);
   }
 }
 
