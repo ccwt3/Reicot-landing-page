@@ -109,12 +109,16 @@
   grid-template-columns: 1fr;
 }
 
-/* Riel lateral (móvil: fila apilada arriba del contenido) */
+/* Riel lateral. En móvil se compacta como fila (marca+servicios | proceso)
+   para no ocupar una pantalla de metadatos disperso antes del titular. */
 .rail {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  padding: 28px var(--gutter);
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-5) var(--space-7);
+  padding: 24px var(--gutter);
   border-bottom: 1px solid var(--line);
   color: var(--ink-muted);
   font-size: var(--fs-rail);
@@ -138,26 +142,13 @@
 
 .rail ol {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(74px, 1fr));
+  gap: 12px var(--space-6);
 }
 
 .rail li span {
   display: block;
   color: var(--ink);
-}
-
-@media (min-width: 480px) {
-  .rail {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--space-6) var(--space-8);
-  }
-
-  .rail ol {
-    grid-template-columns: repeat(2, minmax(90px, 1fr));
-    gap: 12px var(--space-6);
-  }
 }
 
 /* Contenido central */
@@ -229,16 +220,16 @@
   .rail {
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: var(--space-9);
-    padding: 56px 34px;
+    justify-content: center;
+    gap: var(--space-8);
+    padding: var(--section-py-sm) 34px;
     border-right: 1px solid var(--line);
     border-bottom: 0;
   }
 
   .rail ol {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: var(--space-4);
   }
 
   .hero__content {
@@ -267,7 +258,7 @@
   }
 
   .hero__content {
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-block: var(--section-py-sm);
   }
 
@@ -275,8 +266,8 @@
     grid-column: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: var(--space-9);
+    justify-content: center;
+    gap: var(--space-7);
     padding: 72px 34px 70px;
     border-top: 0;
     border-left: 1px solid var(--line);

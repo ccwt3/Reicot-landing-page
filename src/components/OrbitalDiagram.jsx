@@ -11,7 +11,6 @@ export default function OrbitalDiagram() {
       <span className="orbital__dot orbital__dot--three" />
       <span className="orbital__line orbital__line--one" />
       <span className="orbital__line orbital__line--two" />
-      <span className="orbital__label">Arquitectura / Producto / Datos</span>
     </div>
   );
 }

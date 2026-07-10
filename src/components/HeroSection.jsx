@@ -68,8 +68,7 @@ export default function HeroSection() {
           <article className="hero__editorial">
             <p className="kicker">Nota editorial</p>
             <p>
-              <strong>[Qué debe ir: frase corta que explique el enfoque de Reicot.]</strong>
-              Software a la medida.
+              <strong>Software a la medida.</strong>
             </p>
           </article>
         </aside>
