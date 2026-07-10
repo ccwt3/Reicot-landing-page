@@ -50,17 +50,14 @@ export default function HeroSection() {
             <article>
               <p className="kicker">Propuesta Principal</p>
               <p>
-                <strong>[Qué debe ir: una promesa clara sobre qué problema resuelve Reicot y para quién.]</strong>{' '}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed justo vitae nibh posuere
-                cursus.
+                En Reicot desarrollamos sistemas al milimetro para <strong>Pequeñas y Medianas Empresas</strong>, asi como para <strong>emprendedores</strong> que necesitan no solo una pagina web, si no un sistema confiable para mantener sus operacion del dia a dia.
               </p>
             </article>
             <article>
               <p className="kicker">Contexto de valor</p>
               <p>
-                <strong>[Qué debe ir: explicación breve de por qué el software a medida mejora procesos, ventas o
-                control interno.]</strong>{' '}
-                Praesent non sem ut augue tincidunt finibus. Donec at neque id lacus mattis posuere.
+                A este punto el software hecho solo para usted no es un lujo, si no una <strong>necesidad</strong>, desde llevar control sobre que entra y que sale, hasta poder mantener comunicacion con su equipo interno.
+                <br /><strong>Acelerar</strong> procesos que manualmente llevan mucho tiempo y personal que podrian ser utilizados en situaciones mucho mas productivas.
               </p>
             </article>
           </div>
@@ -71,8 +68,8 @@ export default function HeroSection() {
           <article className="hero__editorial">
             <p className="kicker">Nota editorial</p>
             <p>
-              <strong>[Qué debe ir: frase corta que explique el enfoque de Reicot.]</strong> Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit.
+              <strong>[Qué debe ir: frase corta que explique el enfoque de Reicot.]</strong>
+              Software a la medida.
             </p>
           </article>
         </aside>

@@ -12,15 +12,13 @@ export default function FooterSection() {
           <article>
             <p className="kicker">CTA Principal</p>
             <p>
-              <strong>[Qué debe ir: invitación directa a agendar llamada, pedir diagnóstico o cotizar.]</strong>{' '}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              No pierda tiempo ni energia en problemas triviales y agende la cita para rescatar su productividad.
             </p>
           </article>
           <article>
             <p className="kicker">Datos de contacto</p>
             <p>
-              <strong>[Qué debe ir: WhatsApp, correo, ciudad, horario o formulario.]</strong> Praesent consequat
-              dolor nec lorem congue, vitae sodales sapien efficitur.
+              Correo electronico: <br /> <strong>meetings@reicot.dev</strong>
             </p>
           </article>
         </div>
@@ -36,8 +34,8 @@ export default function FooterSection() {
       <aside className="footer__side">
         <ReicotLogo compact />
         <p>
-          <strong>[Qué debe ir: cierre de marca en una frase.]</strong> Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Integer nisl efficitur tincidunt.
+          <strong>El objetivo no es saber, si no hacer.
+          <br />Software directo de la mente.</strong>
         </p>
       </aside>
 
